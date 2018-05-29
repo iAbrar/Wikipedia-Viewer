@@ -4,3 +4,10 @@ html{
 body{
   background: linear-gradient(50deg, #7383F7, #C384FB);
 }
+.main{
+    max-width: 900px;
+    background: #ffffff;
+    margin: 100px auto auto auto;
+    padding: 3%;
+    border-radius: 10px;
+}
