@@ -20,6 +20,10 @@ color: #ffffff;
 font-family: 'Lobster Two', cursive;
 font-size: 4.5rem;
 }
+a{
+    margin: auto;
+color: #cecece;
+}
 footer{
     padding-bottom: 1%;
 }
