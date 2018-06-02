@@ -6,6 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+      <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -15,20 +16,21 @@
     </div><!--END ROW -->
 
 
-  <form class="search">
+  <div class="search">
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control form-control-lg" placeholder="What are you looking for..? ">
+      <input type="text" name="Wikipedia" class="form-control form-control-lg" placeholder="What are you looking for..? ">
     </div>
  <div class="col-auto">
-      <button type="submit" class="btn btn-primary btn-lg">Search</button>
+      <button id="search" type="submit" class="btn btn-primary btn-lg">Search</button>
     </div>
   </div>
 
-</form><!--END FORM -->
+</div><!--END FORM -->
 <div class="row">
      <a role="button" href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random article</a>
 </div>
+<div id="display-result"></div>
  </div><!--END container -->
 </body>
     <footer class="fixed-bottom font-small">
@@ -39,4 +41,28 @@
 </script> Copyright
         </div><!--/.Copyright-->
     </footer><!--/.Footer-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('button').click(function() {
+
+
+            $.ajax({
+
+                url: 'https://en.wikipedia.org/w/api.php',
+                  xhrFields: { withCredentials: true },
+                data: { action: 'query', list: 'search', srsearch: $("input[name=Wikipedia]").val(), format: 'json' },
+                dataType: 'jsonp',
+                success: processResult
+            });
+        });
+    });
+
+  function processResult(apiResult){
+    console.log(apiResult);
+     for (var i = 0; i < apiResult.query.search.length; i++){
+
+       $('#display-result').append('<p>'+apiResult.query.search[i].title+'</p>');
+     }
+  }
+    </script>
 </html>
