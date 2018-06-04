@@ -19,7 +19,7 @@
   <div class="search">
   <div class="row">
     <div class="col">
-      <input type="text" name="Wikipedia" class="form-control form-control-lg" placeholder="What are you looking for..? ">
+      <input type="text" id="WikipediaSearch" name="Wikipedia" class="form-control form-control-lg" placeholder="What are you looking for..? ">
     </div>
  <div class="col-auto">
       <button id="search" type="submit" class="btn btn-primary btn-lg">Search</button>
@@ -44,24 +44,31 @@
     <script type="text/javascript">
         $(document).ready(function(){
         $('button').click(function() {
-
+ $('#display-result').html("");// reset the content
 
             $.ajax({
 
                 url: 'https://en.wikipedia.org/w/api.php',
-                  xhrFields: { withCredentials: true },
-                data: { action: 'query', list: 'search', srsearch: $("input[name=Wikipedia]").val(), format: 'json' },
+                data: { action: 'query', list: 'search', inprop: 'url', srsearch: $("input[name=Wikipedia]").val(), format: 'json' },
                 dataType: 'jsonp',
                 success: processResult
             });
         });
+           $('#WikipediaSearch').keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            $('button').click();//Trigger search button click event
+        }
+    });
     });
 
   function processResult(apiResult){
     console.log(apiResult);
+     var pageUrl="http://en.wikipedia.org/?curid=";
      for (var i = 0; i < apiResult.query.search.length; i++){
 
-       $('#display-result').append('<p>'+apiResult.query.search[i].title+'</p>');
+       $('#display-result').append(
+"<a target='_blank' href='"+pageUrl+apiResult.query.search[i].pageid+"'><h3>"+apiResult.query.search[i].title+"</h3>"
+        +'<p>'+apiResult.query.search[i].title+'</p>');
      }
   }
     </script>
