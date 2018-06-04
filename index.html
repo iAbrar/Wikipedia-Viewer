@@ -30,10 +30,12 @@
 <div class="row">
      <a role="button" href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random article</a>
 </div>
+<div class="row">
 <div id="display-result"></div>
+</div>
  </div><!--END container -->
 </body>
-    <footer class="fixed-bottom font-small">
+    <footer class="font-small">
         <!--Copyright-->
         <div class="footer-copyright text-center">
             © <script type="text/javascript">
@@ -67,8 +69,17 @@
      for (var i = 0; i < apiResult.query.search.length; i++){
 
        $('#display-result').append(
+
+"<div class='card'>" +
+  "<div class='card-body'>"+
+   " <h5 class='card-title'>Special title treatment</h5>"+
+    "<p class='card-text'>With supporting text below as a natural lead-in to additional content.</p>"
+ + " </div>"+
+"</div>");
+
+       /*
 "<a target='_blank' href='"+pageUrl+apiResult.query.search[i].pageid+"'><h3>"+apiResult.query.search[i].title+"</h3>"
-        +'<p>'+apiResult.query.search[i].title+'</p>');
+        +'<p>'+apiResult.query.search[i].title+'</p>');*/
      }
   }
     </script>
