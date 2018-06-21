@@ -26,4 +26,4 @@ I used this API [mediawiki API](https://www.mediawiki.org/wiki/API:Main_page) to
 - Background made by [Freepik](https://www.freepik.com) but I converted to svg [here the orignal](https://www.freepik.com/free-vector/seo-elements-background_1819022.htm#term=search%20engine&page=1&position=18)
 
 
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20over%20170%20free%20design%20blocks%20based%20on%20Bootstrap%204&url=https://www.froala.com/design-blocks&via=froala&hashtags=bootstrap,design,templates,blocks,developers)
+[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=freeCodeCamp%wiki%API%Challenge&url=https://github.com/iAbrar/Wikipedia-Viewer&hashtags=bootstrap,design,Wiki,search,freeCodeCamp)
