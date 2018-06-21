@@ -20,6 +20,10 @@ color: #ffffff;
 font-family: 'Lobster Two', cursive;
 font-size: 4.5rem;
 }
+#display-result{
+    margin: auto;
+    padding: 3%;
+}
 a{
     margin: auto;
 color: #cecece;
