@@ -5,20 +5,23 @@ html,body{
 }
 body{
   background: url("img/background.svg") no-repeat,linear-gradient(50deg, #7383FF, #C384FB);
-background-size:cover;
-background-position:center;
-color: #495057;
+  background-size:cover;
+  background-position:center;
+  color: #495057;
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .search{
     margin: 100px auto auto auto;
     padding: 3%;
-  }
+}
 .title{
     margin: auto;
     padding-top: 10%;
-color: #ffffff;
-font-family: 'Lobster Two', cursive;
-font-size: 4.5rem;
+    color: #ffffff;
+    font-family: 'Lobster Two', cursive;
+    font-size: 4.5rem;
 }
 #display-result{
     margin: auto;
@@ -26,8 +29,9 @@ font-size: 4.5rem;
 }
 a{
     margin: auto;
-color: #cecece;
+    color: #cecece;
 }
 footer{
-    padding-bottom: 1%;
+  margin-top: auto;
+    padding: 1%;
 }
