@@ -1,12 +1,10 @@
 # Wikipedia Viewr
-This project is a part from free code camp challenge which a website that shows result for the search from wikipedia :page_facing_up: :notebook_with_decorative_cover:. Please click here for the [Live site](https://iabrar.github.io/Show-the-Local-Weather/).
+This project is a part from free code camp challenge which a website that shows result for the search from wikipedia :page_facing_up: :notebook_with_decorative_cover:. Please click here for the [Live site](https://iabrar.github.io/Wikipedia-Viewer/).
 
 ## Project Screen Shot(s)
-version 0
+
 ![](https://github.com/iAbrar/Show-the-Local-Weather/blob/master/codepen.gif)
 
-version 1.0
-![](https://github.com/iAbrar/Show-the-Local-Weather/blob/master/ezgif.com-video-to-gif.gif)
 
 ## Installation and Setup Instructions
 
