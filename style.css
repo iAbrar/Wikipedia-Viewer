@@ -22,14 +22,20 @@ body{
     color: #ffffff;
     font-family: 'Lobster Two', cursive;
     font-size: 4.5rem;
+}#display-result a{
+    color: #7383FF;
 }
 #display-result{
     margin: auto;
     padding: 3%;
+    color: gray;
 }
 a{
     margin: auto;
     color: #cecece;
+     font-weight: bold;
+     font-size: 20px;
+     text-decoration: underline;
 }
 footer{
   margin-top: auto;
