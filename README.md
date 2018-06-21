@@ -3,7 +3,7 @@ This project is a part from free code camp challenge which a website that shows 
 
 ## Project Screen Shot(s)
 
-![](https://github.com/iAbrar/Show-the-Local-Weather/blob/master/codepen.gif)
+![](https://github.com/iAbrar/Wikipedia-Viewer/img/wikipedia viewer.gif)
 
 
 ## Installation and Setup Instructions
