@@ -22,7 +22,11 @@ body{
     color: #ffffff;
     font-family: 'Lobster Two', cursive;
     font-size: 4.5rem;
-}#display-result a{
+}
+.card{
+    min-width: 100%;
+}
+#display-result a{
     color: #7383FF;
 }
 #display-result{

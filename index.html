@@ -67,21 +67,29 @@
     var data = apiResult.query;
     console.log(data);
      var pageUrl="http://en.wikipedia.org/?curid=";
+     //check if there is a result
+     if (data.search.length>0){
      for (var i = 0; i < data.search.length; i++){
 
        $('#display-result').append(
 
 "<div class='card'>" +
   "<div class='card-body'>"+
-   " <h5 class='card-title'><a href='"+pageUrl+data.search[i].pageid+"'> "+data.search[i].title+"</a>"+
+   " <h5 class='card-title'><a href='"+pageUrl+data.search[i].pageid+"'> "+data.search[i].title+"</a></h5>"+
     "<p class='card-text'>"+data.search[i].snippet+"</p>"
  + " </div>"+
 "</div>");
+}
+}
+else
+      $('#display-result').append(
+        "<div class='card'>" +
+  "<div class='card-body'>"+"Soory! No result found!"+" </div></div>");
 
        /*
 "<a target='_blank' href='"+pageUrl+apiResult.query.search[i].pageid+"'><h3>"+apiResult.query.search[i].title+"</h3>"
         +'<p>'+apiResult.query.search[i].title+'</p>');*/
      }
-  }
+
     </script>
 </html>
