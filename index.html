@@ -6,90 +6,88 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
- <div class="container">
+   <div class="container">
     <div class="row ">
         <div class="title">Wikipedia Viewer</div>
     </div><!--END ROW -->
 
 
-  <div class="search">
-  <div class="row">
-    <div class="col">
-      <input type="text" id="WikipediaSearch" name="Wikipedia" class="form-control form-control-lg" placeholder="What are you looking for..? ">
-    </div>
- <div class="col-auto">
-      <button id="search" type="submit" class="btn btn-primary btn-lg">Search</button>
-    </div>
+    <div class="search">
+      <div class="row">
+        <div class="col">
+          <input type="text" id="WikipediaSearch" name="Wikipedia" class="form-control form-control-lg" placeholder="What are you looking for..? ">
+      </div>
+      <div class="col-auto">
+          <button id="search" type="submit" class="btn btn-primary btn-lg">Search</button>
+      </div>
   </div>
 
 </div><!--END FORM -->
 <div class="row">
-     <a role="button" href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random article</a>
+   <a role="button" href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random article</a>
 </div>
 
 <div class="row" id="display-result"></div>
 
- </div><!--END container -->
+</div><!--END container -->
 </body>
-    <footer class="font-small">
-        <!--Copyright-->
-        <div class="footer-copyright text-center">
-            © <script type="text/javascript">
-  document.write(new Date().getFullYear());
-</script> Copyright
-        </div><!--/.Copyright-->
-    </footer><!--/.Footer-->
-    <script type="text/javascript">
-        $(document).ready(function(){
+<footer class="font-small">
+    <!--Copyright-->
+    <div class="footer-copyright text-center">
+        © <script type="text/javascript">
+          document.write(new Date().getFullYear());
+      </script> Copyright
+  </div><!--/.Copyright-->
+</footer><!--/.Footer-->
+<script type="text/javascript">
+    $(document).ready(function(){
         $('button').click(function() {
  $('#display-result').html("");// reset the content
 
-            $.ajax({
+ $.ajax({
 
-                url: 'https://en.wikipedia.org/w/api.php',
-                data: { action: 'query', list: 'search', inprop: 'url', srsearch: $("input[name=Wikipedia]").val(), format: 'json' },
-                dataType: 'jsonp',
-                success: processResult
-            });
-        });
-           $('#WikipediaSearch').keypress(function(e){
+    url: 'https://en.wikipedia.org/w/api.php',
+    data: { action: 'query', list: 'search', inprop: 'url', srsearch: $("input[name=Wikipedia]").val(), format: 'json' },
+    dataType: 'jsonp',
+    success: processResult
+});
+});
+        $('#WikipediaSearch').keypress(function(e){
         if(e.which == 13){//Enter key pressed
             $('button').click();//Trigger search button click event
         }
     });
     });
 
-  function processResult(apiResult){
-    var data = apiResult.query;
-    console.log(data);
-     var pageUrl="http://en.wikipedia.org/?curid=";
+    function processResult(apiResult){
+        var data = apiResult.query;
+        console.log(data);
+        var pageUrl="http://en.wikipedia.org/?curid=";
      //check if there is a result
      if (data.search.length>0){
-     for (var i = 0; i < data.search.length; i++){
+       for (var i = 0; i < data.search.length; i++){
 
-       $('#display-result').append(
+         $('#display-result').append(
 
-"<div class='card'>" +
-  "<div class='card-body'>"+
-   " <h5 class='card-title'><a href='"+pageUrl+data.search[i].pageid+"'> "+data.search[i].title+"</a></h5>"+
-    "<p class='card-text'>"+data.search[i].snippet+"</p>"
- + " </div>"+
-"</div>");
-}
-}
-else
-      $('#display-result').append(
-        "<div class='card'>" +
-  "<div class='card-body'>"+"Soory! No result found!"+" </div></div>");
-
-       /*
-"<a target='_blank' href='"+pageUrl+apiResult.query.search[i].pageid+"'><h3>"+apiResult.query.search[i].title+"</h3>"
-        +'<p>'+apiResult.query.search[i].title+'</p>');*/
+            "<div class='card'>" +
+            "<div class='card-body'>"+
+            " <h5 class='card-title'><a href='"+pageUrl+data.search[i].pageid+"'> "+data.search[i].title+"</a></h5>"+
+            "<p class='card-text'>"+data.search[i].snippet+"</p>"
+            + " </div>"+
+            "</div>");
      }
+ }
+ else
+  $('#display-result').append(
+    "<div class='card'>" +
+    "<div class='card-body'>"+"Soory! No result found!"+" </div></div>");
 
-    </script>
+
+}
+
+</script>
 </html>
